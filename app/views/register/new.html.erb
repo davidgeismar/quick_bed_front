@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="text-center">Sign Up Form</h1>
+  <form action="http://localhost:3000/users" method="post" class="text-center">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <div class="form-group">
+      <%= label_tag "email" %>
+      <input type="email" name="user[email]" required>
+    </div>
+    <div class="form-group">
+      <%= label_tag "password" %>
+      <input type="password" name="user[password]" required>
+    </div>
+    <div class="form-group">
+      <%= label_tag "password confirmation" %>
+      <input type="password" name="user[password_confirmation]" required>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-success">
+    </div>
+    <% if @errors %>
+      <ul class="list-unstyled">
+        <%@errors.each do |error|%>
+          <li class="has-error"><%=error%></li>
+        <% end -%>
+      </ul>
+    <% end -%>
+
+  </form>
+
+</div>

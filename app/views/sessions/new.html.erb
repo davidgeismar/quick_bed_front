@@ -1,0 +1,22 @@
+<h1>Sign In Form</h1>
+<form action="http://localhost:3000/users/sign_in" method="post">
+
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <%= label_tag "email" %>
+  <input type="text" name="user[email]">
+  <%= label_tag "password" %>
+  <input type="text" name="user[password]">
+  <input type="submit">
+  <% if @errors %>
+    <ul class="list-unstyled">
+      <%@errors.each do |error|%>
+        <li class="has-error"><%=error%></li>
+      <% end -%>
+    </ul>
+  <% end -%>
+  <br>
+  <%= link_to "Sign Up", register_path %>
+  <br>
+   <%= link_to "Forgot your Password", new_password_request_path %>
+
+</form>

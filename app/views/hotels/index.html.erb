@@ -1,0 +1,10 @@
+<h1>Your Hotels</h1>
+
+<% @hotels.each do |hotel| %>
+  <h2><%= hotel["name"] %></h2>
+  <ul>
+  <li><%= hotel["contact_phone"] %></li>
+  <li><%= hotel["address"] %></li>
+  <li><%= hotel["postcode"] %></li>
+  </ul>
+<% end -%>

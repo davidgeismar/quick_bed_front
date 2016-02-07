@@ -1,0 +1,24 @@
+<h1>Add Rooms</h1>
+<form action="http://localhost:3000/hotels/<%=params[:hotel_id]%>/rooms/multiple_create" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <div class="form-group">
+    <%= label_tag 'room[room_number]', "Number of rooms" %>
+    <input type="number" name="room[room_number]" required>
+  </div>
+  <div class="form-group">
+    <%= label_tag "room[bed_number]", "Number of beds by room" %>
+    <input type="number" name= "room[bed_number]" required>
+  </div>
+  <div class="form-group">
+    <%= label_tag "room[content]", "Room Type" %>
+    <input type="text" name= "room[content]" required>
+  </div>
+  <input type="submit">
+    <% if @errors %>
+    <ul class="list-unstyled">
+      <%@errors.each do |error|%>
+        <li class="has-error"><%=error%></li>
+      <% end -%>
+    </ul>
+  <% end -%>
+</form>

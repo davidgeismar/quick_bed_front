@@ -1,0 +1,45 @@
+<h1>Create an account</h1>
+<%= form_for @account,  url: {action: "create"} do |f| %>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div class="form-group">
+  <%= f.label :contact_mail %>
+  <%= f.text_field :contact_mail %>
+</div>
+<div class="form-group">
+  <%= f.label :contact_tel %>
+  <%= f.text_field :contact_tel %>
+</div>
+<div class="form-group">
+  <%= f.label :iban %>
+  <%= f.text_field :iban %>
+</div>
+<div class="form-group">
+  <%= f.label :bic %>
+  <%= f.text_field :bic %>
+</div>
+<div class="form-group">
+  <%= f.submit %>
+</div>
+<% end %>
+
+
+<!-- Client side Validations -->
+<% if @account.errors.any? %>
+  <ul>
+    <% @account.errors.full_messages.each do |message|%>
+      <li class="has-error"><%= message %></li>
+    <% end %>
+  </ul>
+<% end -%>
+
+<!-- Server side Validations  -->
+ <% if @errors %>
+  <ul class="list-unstyled">
+    <%@errors.each do |error|%>
+      <li class="has-error"><%=error%></li>
+    <% end -%>
+  </ul>
+<% end -%>

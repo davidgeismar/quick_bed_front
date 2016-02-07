@@ -1,0 +1,19 @@
+<h1><%=@hotel["name"] %></h1>
+<ul>
+  <li>
+    <%=@hotel["address"] %>
+  </li>
+  <li>
+    <%=@hotel["phone"] %>
+  </li>
+  <li>
+    <%=@hotel["email"] %>
+  </li>
+  <li>
+    <%=@hotel["city"]%>
+  </li>
+  <li>
+    <%=@hotel["postcode"]%>
+  </li>
+</ul>
+<%= link_to "Add rooms to hotel", hotel_room_multiple_new_path(params[:id]) %>

@@ -1,0 +1,7 @@
+
+<% if session[:user_email] && session[:user_token] %>
+  <form action="http://localhost:3000/destroy_session">
+    <input type="submit" value="sign out" class= "btn btn-danger">
+  </form>
+<% else %>
+<% end -%>

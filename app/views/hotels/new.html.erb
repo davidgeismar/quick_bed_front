@@ -1,0 +1,52 @@
+<h1> Create an hotel </h1>
+
+<!-- just want to specify the path and pass accoun_id as hidden field -->
+<%= form_for @hotel,  url: account_hotels_path(params[:account_id]) do |f| %>
+  <%= f.hidden_field :account_id, :value => params[:account_id] %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :contact_mail %>
+    <%= f.text_field :contact_mail %>
+  </div>
+  <div class="form-group">
+    <%= f.label :contact_phone %>
+    <%= f.text_field :contact_phone %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address%>
+  </div>
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <div class="form-group">
+    <%= f.label :postcode %>
+    <%= f.text_field :postcode %>
+  </div>
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<!-- Client side Validations -->
+<% if @hotel.errors.any? %>
+  <ul>
+    <% @hotel.errors.full_messages.each do |message|%>
+      <li class="has-error"><%= message %></li>
+    <% end %>
+  </ul>
+<% end -%>
+
+<!-- Server side Validations  -->
+ <% if @errors %>
+  <ul class="list-unstyled">
+    <%@errors.each do |error|%>
+      <li class="has-error"><%=error%></li>
+    <% end -%>
+  </ul>
+<% end -%>
+

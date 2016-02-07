@@ -1,0 +1,19 @@
+<h1>Account Details</h1>
+<ul>
+  <li>Name: <strong><%=@account["name"]%></strong></li>
+  <li>Contact Mail: <strong><%=@account["contact_mail"]%></strong></li>
+  <li>Contact Tel:<strong><%=@account["contact_tel"]%></strong></li>
+  <% if @account["legal_status"] %>
+  <li>Legal Status: <strong><%=@account["legal_status"]%></strong></li>
+  <% end -%>
+ <% if @account["iban"] %>
+  <li>IBAN : <strong><%=@account["iban"]%></strong></li>
+  <% end -%>
+  <% if @account["bic"] %>
+  <li> BIC : <strong><%=@account["bic"]%></strong></li>
+  <% end -%>
+</ul>
+
+<%= link_to "Add hotel", new_account_hotel_path(params[:id]), class: "btn btn-success" %>
+<%= link_to "Show hotels", account_hotels_path(params[:id]), class: "btn btn-success" %>
+
